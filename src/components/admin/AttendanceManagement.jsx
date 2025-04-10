@@ -116,8 +116,11 @@ const AttendanceManagement = () => {
                     {record?.photo && (
                         <img
                         src={record.photo 
-                            ? `http://localhost:5000/uploads/${record.photo}` 
+                            ? (process.env.NODE_ENV === 'development' 
+                                ? `http://localhost:5000/uploads/${record.photo}`  // Local development URL
+                                : `https://task-tracker-backend-aeaf.onrender.com/uploads/${record.photo}`)  // Render production URL
                             : `https://ui-avatars.com/api/?name=${encodeURIComponent(record.name)}`}
+                          
                             alt="Worker"
                             className="w-8 h-8 rounded-full mr-2"
                         />

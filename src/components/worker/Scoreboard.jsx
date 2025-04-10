@@ -85,8 +85,11 @@ const Scoreboard = ({ department }) => {
                       <img 
                         className="h-10 w-10 rounded-full object-cover" 
                         src={worker.photoUrl 
-                          ? `http://localhost:5000${worker.photoUrl}` 
+                          ? (process.env.NODE_ENV === 'development' 
+                              ? `http://localhost:5000${worker.photoUrl}` 
+                              : `https://task-tracker-backend-aeaf.onrender.com${worker.photoUrl}`) 
                           : `https://ui-avatars.com/api/?name=${encodeURIComponent(worker.name)}`}
+                        
                         
                         alt={worker.name} 
                       />

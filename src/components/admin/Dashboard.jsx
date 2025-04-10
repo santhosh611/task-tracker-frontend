@@ -195,9 +195,12 @@ const Dashboard = () => {
                 <div key={worker._id} className="flex items-center">
                   <span className="text-lg font-bold w-8">{index + 1}</span>
                   <img
-                    src={worker.photoUrl 
-                      ? `http://localhost:5000${worker.photoUrl}` 
-                      : `https://ui-avatars.com/api/?name=${encodeURIComponent(worker.name)}`}
+src={worker.photoUrl 
+  ? (process.env.NODE_ENV === 'development' 
+      ? `http://localhost:5000${worker.photoUrl}`  // Local development URL
+      : `https://task-tracker-backend-aeaf.onrender.com${worker.photoUrl}`)  // Render production URL
+  : `https://ui-avatars.com/api/?name=${encodeURIComponent(worker.name)}`}
+
                     className="w-10 h-10 rounded-full mr-3 object-cover"
                   />
                   <div className="flex-1">
