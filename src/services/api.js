@@ -3,7 +3,9 @@ import axios from 'axios';
 
 const api = axios.create({
   // baseURL: 'https://task-tracker-backend-2jqf.onrender.com/api',
-  baseURL: 'http://localhost:5000/api',
+  baseURL: process.env.NODE_ENV === 'development' 
+  ? 'http://localhost:5000/api'   // Local development
+  : 'https://task-tracker-backend-skbf.onrender.com/api', 
   withCredentials: true, // If you need cookies for CORS, otherwise can remove
 });
 

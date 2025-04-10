@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useAuth } from './useAuth';
 
 const api = axios.create({
-  baseURL: process.env.NODE_ENV == 'development' ? 'http://localhost:5000/api' : 'https://task-tracker-backend-2jqf.onrender.com/api',
+  baseURL: process.env.NODE_ENV == 'development' ? 'http://localhost:5000/api' : 'https://task-tracker-backend-skbf.onrender.com/api',
   // baseURL: 'http://localhost:5000/api',
   headers: { 
     'Content-Type': 'application/json' 
