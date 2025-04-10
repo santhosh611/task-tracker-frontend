@@ -266,7 +266,10 @@ const WorkerManagement = () => {
         <div className="flex items-center">
           {record?.photo && (
             <img
-              src={`http://localhost:5000/uploads/${record.photo}` || `https://ui-avatars.com/api/?name=${encodeURIComponent(record.name)}`}
+            src={record.photo 
+              ? `http://localhost:5000/uploads/${record.photo}` 
+              : `https://ui-avatars.com/api/?name=${encodeURIComponent(record.name)}`}
+            
               alt="Worker"
               className="w-8 h-8 rounded-full mr-2"
             />

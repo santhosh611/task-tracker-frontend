@@ -31,20 +31,23 @@ import { useEffect, useState } from 'react';
 import AttendanceManagement from './components/admin/AttendanceManagement';
 
 function getSubdomain() {
-  const host = window.location.hostname; // e.g., company1.localhost
+  const host = window.location.hostname; // e.g., company1.localhost or task-tracker-backend-skbf.onrender.com
   const parts = host.split("."); // Split by "."
-
-  // If it's a local dev environment (e.g., company1.localhost)
-  if (host.includes("localhost") && parts.length > 1) {
-    return parts[0]; // Get first part (company1)
+  
+  // Check if the URL is a local development environment (localhost)
+  if (host.includes("localhost")) {
+    if (parts.length > 1) {
+      return parts[0]; // Get first part (e.g., company1 from company1.localhost)
+    }
   }
 
-  // If it's a production environment (e.g., company1.yourapp.com)
-  if (parts.length > 2) {
-    return parts[0]; // Get first part (company1)
+  // Check if it's a Render URL (e.g., task-tracker-backend-skbf.onrender.com)
+  if (host.includes("onrender.com")) {
+    const subdomain = parts.length > 2 ? parts[0] : ''; // Return the subdomain part (e.g., task-tracker-backend-skbf)
+    return subdomain;
   }
 
-  return "main"; // Default if no subdomain
+  return null; // Return null if neither local nor render
 }
 
 function App() {
