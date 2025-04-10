@@ -151,7 +151,7 @@ const AdminRegister = () => {
               placeholder="Enter your sub-domain"
             />
             <p className='text-ls text-gray-500 my-2'>
-              http://{formData.subdomain}.https://task-tracker-client-fawn.vercel.app/ {formData.subdomain !== "" ? (domainAvailable ? <span className='text-green-600'>*Available</span> : <span className='text-red-600'>*Not Available</span>) : null}
+              http://{formData.subdomain}.https://task-tracker-frontend-omega.vercel.app/ {formData.subdomain !== "" ? (domainAvailable ? <span className='text-green-600'>*Available</span> : <span className='text-red-600'>*Not Available</span>) : null}
             </p>
           </div>
 
